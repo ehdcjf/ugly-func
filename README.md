@@ -20,6 +20,7 @@ npm install --save-dev hardhat
 npm install --save-dev @nomicfoundation/hardhat-toolbox
 npm install @openzeppelin/contracts 
 npm install --save-dev @nomiclabs/hardhat-ethers ethers
+npm install @openzeppelin/hardhat-upgrades
 ```
 
 # Run (init)
@@ -32,11 +33,6 @@ npx hardhat
 npx hardhat compile
 ```
 
-# Goerli Deploy
-```shell
-npx hardhat run --network goerli .\scripts\*.js
-```
-
 # Local Network
 ```shell
 npx hardhat node
@@ -45,6 +41,11 @@ npx hardhat node
 # Deploy Local Network
 ```shell
 npx hardhat run --network localhost .\scripts\1_deploy_box.js
+```
+
+# Goerli Deploy
+```shell
+npx hardhat run --network goerli .\scripts\*.js
 ```
 
 # Interacting from the Console
