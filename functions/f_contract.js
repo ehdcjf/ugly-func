@@ -1,21 +1,21 @@
 // const functions = require("firebase-functions");
-const dotenv = require('dotenv');
-dotenv.config();
+const {privateKey, alchemyApiKey} = require('../config.js'); 
 
 
 //ether
 const ethers = require('ethers');
-const BoxContarct = require('../contracts/Box.json')
+const BoxContarct = require('../artifacts/contracts/Box.sol/Box.json')
 
-const provider = ethers.providers.AlchemyProvider("goerli",)
+const provider = new ethers.providers.AlchemyProvider("goerli",alchemyApiKey)
 
-const privateKey = process.env.PRIVATE_KEY
 const wallet = new ethers.Wallet(privateKey, provider);
 
-(async function() {
-        const Box = new ethers.Contract(BoxContarct.address, BoxContarct.abi, provider);
-        
+async function test() {
+        const Box = new ethers.Contract(BoxContarct.address, BoxContarct.abi, wallet);
+        console.log(Box.signer)
         const value = await Box.retrieve();
-        console.log(value);
+        console.log(value.toString());
+    };
 
-    })();
+
+    test();

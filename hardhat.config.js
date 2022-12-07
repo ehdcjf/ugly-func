@@ -7,11 +7,11 @@ const {alchemyApiKey, privateKey} = require('./config');
 module.exports = {
   defaultNetwork: "goerli",
   networks: {
-    hardhat: {
-    },
+    // hardhat: {
+    // },
     goerli: {
       url: `https://eth-goerli.alchemyapi.io/v2/${alchemyApiKey}`,
-      accounts: [privateKey,]
+      accounts: [privateKey]
     }
   },
   solidity: "0.8.17",
